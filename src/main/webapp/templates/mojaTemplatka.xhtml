@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><ui:insert name="windowTitle">#{msg.title}</ui:insert></title>
+</h:head>
+
+<h:body>
+
+	<h:outputStylesheet library="css" name="mojCSS.css" target="body" />
+	<div id="header">
+
+		<h1>#{msg.myHeader}</h1>
+		<p>#{msg.byWho}</p>
+
+	</div>
+
+
+	<div id="menu">
+
+		<ul>
+			<li><a href="home.jsf">#{msg.menuFirst}</a></li>
+			<li><a href="list.jsf">#{msg.menuSec}</a></li>
+			<li><a href="#">#{msg.menuTh}</a></li>
+			<li><a href="#">#{msg.menuF}</a></li>
+		</ul>
+
+	</div>
+
+	<div id="page">
+		<div id="content">
+			<ui:insert name="content">
+
+
+			</ui:insert>
+		</div>
+	</div>
+
+	<div id="footer">
+
+		<p>#{msg.foot}</p>
+
+
+	</div>
+
+</h:body>
+
+</html>

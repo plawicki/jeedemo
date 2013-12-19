@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/mojaTemplatka.xhtml">
+
+	<ui:define name="content">
+
+		<div class="post">
+			<h2 class="title">#{msg.firstPostTitle}</h2>
+			<p class="byline">
+				<small>#{msg.firstPostTime} by #{msg.byWho}</small>
+			</p>
+			<div class="entry">
+	
+<!-- 				<p>#{msg.firstPostContent}</p> -->
+				
+				<h:form>
+					<h:dataTable value="#{gameBean.allGames}" var="item">
+			
+					
+					<h:column>
+						<f:facet name="header">${msg.listaPIN}</f:facet>
+						#{item.PIN}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">${msg.listaTitle}</f:facet>
+						#{item.title}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">${msg.listaYop}</f:facet>
+						#{item.yop}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">${msg.listaPrice}</f:facet>
+						#{item.price}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">${msg.listaRequireAdult}</f:facet>
+						#{item.requireAdult}
+					</h:column>
+					
+					</h:dataTable>
+				
+				</h:form>
+
+			</div>
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>
