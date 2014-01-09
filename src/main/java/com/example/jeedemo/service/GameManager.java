@@ -1,14 +1,17 @@
 package com.example.jeedemo.service;
 
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.model.ListDataModel;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.example.jeedemo.domain.Car;
+import com.example.jeedemo.domain.Developer;
+import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.domain.Person;
 
@@ -18,8 +21,19 @@ public class GameManager {
 	@PersistenceContext
 	EntityManager em;
 
-	public void addGame(Game game) {
-
+	public void addGame(Game game, Long devId, List<Long> distId) {
+		
+		for(Long i: distId)
+		{
+			Distributor dist = em.find(Distributor.class, i);
+			
+			game.getDist().add(dist);
+		}
+		
+		Developer dev = em.find(Developer.class, devId);
+		
+		game.setDev(dev);
+		
 		game.setId(null);
 		em.persist(game);
 	}

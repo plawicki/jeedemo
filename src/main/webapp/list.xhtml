@@ -31,8 +31,14 @@
 					</h:column>
 					
 					<h:column>
-						<f:facet name="header">${msg.listaYop}</f:facet>
-						#{item.yop}
+						<f:facet name="header" >
+							#{msg.listaYop}
+						</f:facet>
+						
+						<h:outputText value="#{item.yop}">
+							<f:convertDateTime pattern="dd-MM-yyyy"/>	
+						</h:outputText>	
+						
 					</h:column>
 					
 					<h:column>

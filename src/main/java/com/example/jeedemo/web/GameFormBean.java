@@ -1,8 +1,10 @@
 package com.example.jeedemo.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -16,8 +18,9 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-
+import com.example.jeedemo.domain.Car;
 import com.example.jeedemo.domain.Game;
+import com.example.jeedemo.domain.Person;
 import com.example.jeedemo.service.GameManager;
 
 
@@ -31,6 +34,25 @@ public class GameFormBean implements Serializable
 	private Game game = new Game();
 
 	private ListDataModel<Game> games = new ListDataModel<Game>();
+	
+	private List<Long> distId = new ArrayList<Long>();
+	private Long devId;
+	
+	public List<Long> getDistId() {
+		return distId;
+	}
+
+	public void setDistId(List<Long> distId) {
+		this.distId = distId;
+	}
+
+	public Long getDevId() {
+		return devId;
+	}
+
+	public void setDevId(Long devId) {
+		this.devId = devId;
+	}
 
 	@Inject
 	private GameManager gm;
@@ -51,7 +73,8 @@ public class GameFormBean implements Serializable
 	// Actions
 	
 	public String addGame() {
-		gm.addGame(game);
+
+		gm.addGame(game, devId, distId);
 		return "list";
 		//return null;
 	}
@@ -61,13 +84,15 @@ public class GameFormBean implements Serializable
 		gm.deleteGame(gameToDelete);
 		return null;
 	}
+	
 	/*
 	public String getGamePIN()
 	{
 		Game g = games.getRowData();
-		gm.getGamePIN(g);
+		gm.;
 		return null;
 	}
+	
 	
 	public String getGamesAdult()
 	{
@@ -81,6 +106,7 @@ public class GameFormBean implements Serializable
 		gm.getGamesByNotAdult();
 		return null;
 	}
+	
 	
 	public String getGamesYop()
 	{

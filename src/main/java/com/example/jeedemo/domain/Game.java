@@ -1,11 +1,20 @@
 package com.example.jeedemo.domain;
 
-import java.util.Date;
+// many to one - developer
+// many to many - distributor
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -25,6 +34,9 @@ public class Game {
 	Date yop;
 	double price;
 	boolean requireAdult;
+	
+	Developer dev;
+	List<Distributor> dist = new ArrayList<Distributor>();
 	
 	public Game() {
 
@@ -84,6 +96,24 @@ public class Game {
 	}
 	public void setRequireAdult(boolean requireAdult) {
 		this.requireAdult = requireAdult;
+	}
+
+	@ManyToMany
+	public List<Distributor> getDist() {
+		return dist;
+	}
+
+	public void setDist(List<Distributor> dist) {
+		this.dist = dist;
+	}
+
+	@ManyToOne(cascade = { CascadeType.ALL })
+	public Developer getDev() {
+		return dev;
+	}
+
+	public void setDev(Developer dev) {
+		this.dev = dev;
 	}
 	
 	
