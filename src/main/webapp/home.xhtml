@@ -61,7 +61,7 @@
 							<f:selectItems value="#{devBean.allDevelopers}" var="dev" itemValue="#{dev.id}" converter="javax.faces.Long" itemLabel="#{dev.name}"  />
 						</h:selectOneMenu>
 						
-						<h:selectManyListbox value="#{gameBean.distId}" converter="javax.faces.Integer">
+						<h:selectManyListbox value="#{gameBean.distId}" converter="javax.faces.Long">
 							<f:selectItems value="#{distBean.allDistributors}" 
 							var="dist" itemValue="${dist.id}" itemLabel="#{dist.name}" />
 						</h:selectManyListbox>
