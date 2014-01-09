@@ -35,14 +35,14 @@ public class GameFormBean implements Serializable
 
 	private ListDataModel<Game> games = new ListDataModel<Game>();
 	
-	private List<Long> distId = new ArrayList<Long>();
+	private Integer[] distId = new Integer[100];
 	private Long devId;
 	
-	public List<Long> getDistId() {
+	public Integer[] getDistId() {
 		return distId;
 	}
 
-	public void setDistId(List<Long> distId) {
+	public void setDistId(Integer[] distId) {
 		this.distId = distId;
 	}
 

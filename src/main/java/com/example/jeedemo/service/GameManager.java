@@ -21,9 +21,9 @@ public class GameManager {
 	@PersistenceContext
 	EntityManager em;
 
-	public void addGame(Game game, Long devId, List<Long> distId) {
+	public void addGame(Game game, Long devId, Integer[] distId) {
 		
-		for(Long i: distId)
+		for(Integer i: distId)
 		{
 			Distributor dist = em.find(Distributor.class, i);
 			

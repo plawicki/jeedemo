@@ -58,12 +58,12 @@
 							value="#{gameBean.game.requireAdult}" />
 							
 						<h:selectOneMenu value="#{gameBean.devId}">
-							<f:selectItems value="#{devBean.allDevelopers}" var="dev" itemValue="dev.id" itemLabel="#{dev.name}" />
+							<f:selectItems value="#{devBean.allDevelopers}" var="dev" itemValue="#{dev.id}" converter="javax.faces.Long" itemLabel="#{dev.name}"  />
 						</h:selectOneMenu>
 						
-						<h:selectManyListbox value="#{gameBean.distId}">
+						<h:selectManyListbox value="#{gameBean.distId}" converter="javax.faces.Integer">
 							<f:selectItems value="#{distBean.allDistributors}" 
-							var="dist" itemValue="dist.id" itemLabel="#{dist.name}" />
+							var="dist" itemValue="${dist.id}" itemLabel="#{dist.name}" />
 						</h:selectManyListbox>
 							
 					</h:panelGrid>
