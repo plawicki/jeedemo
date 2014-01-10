@@ -23,6 +23,9 @@ public class GameManager {
 
 	public void addGame(Game game, Long devId, Long[] distId) {
 		
+		game.setDist(new ArrayList<Distributor>());
+		game.setDev(null);
+		
 		for(Long i: distId)
 		{
 			Distributor dist = em.find(Distributor.class, i);
