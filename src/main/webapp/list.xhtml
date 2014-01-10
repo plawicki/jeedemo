@@ -56,6 +56,13 @@
 						#{item.dev.name}
 					</h:column>
 					
+					<h:column>
+						<f:facet name="header">${msg.listaNameDist}</f:facet>
+						  <ui:repeat var="dist" value="#{item.dist}">
+						 	 <h:outputText value="${dist.name}, "/>
+						  </ui:repeat>
+					</h:column>
+					
 					</h:dataTable>
 				
 				</h:form>

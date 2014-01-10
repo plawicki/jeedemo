@@ -21,7 +21,7 @@ public class GameManager {
 	@PersistenceContext
 	EntityManager em;
 
-	public void addGame(Game game, Long devId, List<Long> distId) {
+	public void addGame(Game game, Long devId, Long[] distId) {
 		
 		for(Long i: distId)
 		{
