@@ -21,6 +21,8 @@ public class GameManager {
 	
 	@PersistenceContext
 	EntityManager em;
+	
+	String help = " ";
 
 	public void addGame(Game game, Long devId, Long[] distId, Long isgnId) {
 		
@@ -52,86 +54,15 @@ public class GameManager {
 		game = em.find(Game.class, game.getId());
 		em.remove(game);
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public List<Game> getAllGames() {
 		return em.createNamedQuery("game.all").getResultList();
 	}
-	
-	/*
-	// Games with adult requirments
-	public List<Game> getGamesByAdult()
+
+	public List<Game> getGamesByTitle(String arg)
 	{
-		List<Game> gameByAdult = new ArrayList<Game>();
-		for(Game g : db)
-		{
-			if(g.isRequireAdult())
-				gameByAdult.add(g);
-		}
-		return gameByAdult;
+		this.help = arg;
+		return em.createNamedQuery("game.find").setParameter("title", "%" + this.help + "%").getResultList();
 	}
-	
-	// Games without adult requirments
-	public List<Game> getGamesByNotAdult()
-	{
-		List<Game> gameByNotAdult = new ArrayList<Game>();
-		
-		for (Game g : db) {
-			if (!g.isRequireAdult()) {
-				gameByNotAdult.add(g);
-			}
-		}
-		return gameByNotAdult;
-
-	}
-	
-	// Find game with given title
-	public Game getGameByTitle(Game game) {
-
-		for (Game g : db) {
-			if (game.getTitle().equals(g.getTitle())) {
-				return g;
-			}
-		}
-
-		return null;
-	}
-	
-	// Find game with given PIN
-		public Game getGamePIN(Game game) {
-
-			for (Game g : db) {
-				if (game.getPIN().equals(g.getPIN())) {
-					return g;
-				}
-			}
-
-			return null;
-		}
-	
-	// Games by year of publication
-	public List<Game> getGamesByYop(Date yop)
-	{
-		List<Game> gameByYop = new ArrayList<Game>();
-		for(Game g : db)
-		{
-			if(g.getYop().equals(yop))
-				gameByYop.add(g);
-		}
-		return gameByYop;
-	}
-	
-	// Games by price
-	public List<Game> getGamesByPrice(double price)
-	{
-		List<Game> gameByPrice = new ArrayList<Game>();
-		for(Game g : db)
-		{
-			if(g.getPrice() == price)
-				gameByPrice.add(g);
-		}
-		return gameByPrice;
-	}
-	
-	*/
 }

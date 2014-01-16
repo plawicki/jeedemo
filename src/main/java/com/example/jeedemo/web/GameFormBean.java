@@ -40,8 +40,16 @@ public class GameFormBean implements Serializable
 	private Long devId;
 	private Long isgnId;
 	
+	private String findTitle = "asdf";
 	
-	
+	public String getFindTitle() {
+		return findTitle;
+	}
+
+	public void setFindTitle(String findTitle) {
+		this.findTitle = findTitle;
+	}
+
 	public Long getIsgnId() {
 		return isgnId;
 	}
@@ -98,6 +106,11 @@ public class GameFormBean implements Serializable
 		return null;
 	}
 	
+	public ListDataModel<Game> getGamesByTitle()
+	{
+		games.setWrappedData(gm.getGamesByTitle(findTitle));
+		return games;
+	}
 	/*
 	public String getGamePIN()
 	{

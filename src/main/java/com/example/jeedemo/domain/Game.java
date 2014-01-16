@@ -26,7 +26,8 @@ import javax.validation.constraints.Size;
 
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "game.all", query = "Select g from Game g")
+	@NamedQuery(name = "game.all", query = "Select g from Game g"),
+	@NamedQuery(name = "game.find", query = "Select ga from Game ga where ga.title LIKE :title")
 })
 public class Game {
 	
