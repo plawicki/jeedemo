@@ -40,7 +40,7 @@ public class GameFormBean implements Serializable
 	private Long devId;
 	private Long isgnId;
 	
-	private String findTitle = "asdf";
+	private String findTitle = "";
 	
 	public String getFindTitle() {
 		return findTitle;
@@ -98,6 +98,12 @@ public class GameFormBean implements Serializable
 		return "list";
 		//return null;
 	}
+	
+	public String editGame()
+	{
+		gm.editGame(game);
+		return null;
+	}
 
 	public String deleteGame() {
 		Game gameToDelete = games.getRowData();
@@ -111,44 +117,9 @@ public class GameFormBean implements Serializable
 		games.setWrappedData(gm.getGamesByTitle(findTitle));
 		return games;
 	}
-	/*
-	public String getGamePIN()
-	{
-		Game g = games.getRowData();
-		gm.;
-		return null;
-	}
 	
+	// Validators
 	
-	public String getGamesAdult()
-	{
-		
-		gm.getGamesByAdult();
-		return null;
-	}
-	
-	public String getGamesNotAdult()
-	{
-		gm.getGamesByNotAdult();
-		return null;
-	}
-	
-	
-	public String getGamesYop()
-	{
-		Game g = games.getRowData();
-		gm.getGamesByYop(g.getYop());
-		return null;
-	}
-	
-	public String getGamesPrice()
-	{
-		Game g = games.getRowData();
-		gm.getGamesByPrice(g.getPrice());
-		return null;
-	}	
-	*/
-
 	public void uniquePin(FacesContext context, UIComponent component,
 			Object value) {
 

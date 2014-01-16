@@ -2,6 +2,7 @@ package com.example.jeedemo.service;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -22,7 +23,7 @@ public class GameManager {
 	@PersistenceContext
 	EntityManager em;
 	
-	String help = " ";
+	String help = "";
 
 	public void addGame(Game game, Long devId, Long[] distId, Long isgnId) {
 		
@@ -64,5 +65,10 @@ public class GameManager {
 	{
 		this.help = arg;
 		return em.createNamedQuery("game.find").setParameter("title", "%" + this.help + "%").getResultList();
+	}
+	
+	public void editGame(Game gameToChange)
+	{
+		em.refresh(gameToChange);
 	}
 }
