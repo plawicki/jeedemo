@@ -69,6 +69,7 @@ public class GameManager {
 	
 	public void editGame(Game gameToChange)
 	{
-		em.refresh(gameToChange);
+		//em.refresh(gameToChange);
+		em.merge(gameToChange);
 	}
 }
