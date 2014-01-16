@@ -37,7 +37,18 @@ public class GameFormBean implements Serializable
 	
 	private Long[] distId = new Long[1];
 	private Long devId;
+	private Long isgnId;
 	
+	
+	
+	public Long getIsgnId() {
+		return isgnId;
+	}
+
+	public void setIsgnId(Long isgnId) {
+		this.isgnId = isgnId;
+	}
+
 	public Long[] getDistId() {
 		return distId;
 	}
@@ -74,7 +85,7 @@ public class GameFormBean implements Serializable
 	
 	public String addGame() {
 
-		gm.addGame(game, devId, distId);
+		gm.addGame(game, devId, distId, isgnId);
 		return "list";
 		//return null;
 	}

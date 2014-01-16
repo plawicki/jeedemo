@@ -13,6 +13,7 @@ import com.example.jeedemo.domain.Car;
 import com.example.jeedemo.domain.Developer;
 import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.domain.Game;
+import com.example.jeedemo.domain.Isgn;
 import com.example.jeedemo.domain.Person;
 
 @Stateless
@@ -21,10 +22,11 @@ public class GameManager {
 	@PersistenceContext
 	EntityManager em;
 
-	public void addGame(Game game, Long devId, Long[] distId) {
+	public void addGame(Game game, Long devId, Long[] distId, Long isgnId) {
 		
 		game.setDist(new ArrayList<Distributor>());
 		game.setDev(null);
+		game.setIsgn(null);
 		
 		for(Long i: distId)
 		{
@@ -32,6 +34,10 @@ public class GameManager {
 			
 			game.getDist().add(dist);
 		}
+		
+		Isgn isgn = em.find(Isgn.class, isgnId);
+		
+		game.setIsgn(isgn);
 		
 		Developer dev = em.find(Developer.class, devId);
 		

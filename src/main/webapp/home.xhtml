@@ -68,6 +68,13 @@
 							<f:selectItems value="#{distBean.allDistributors}" 
 							  var="dist" itemValue="#{dist.id}" itemLabel="#{dist.name}" />
 						</h:selectManyListbox>
+						
+						<h:outputText value="ISGN" />
+						<h:selectOneMenu value="#{gameBean.isgnId}" >
+							<f:selectItems value="#{isgnBean.allIsgns}" var="isgn"
+								itemValue="#{isgn.id}" converter="javax.faces.Long" itemLabel="#{isgn.value}" />
+						
+						</h:selectOneMenu>
 							
 					</h:panelGrid>
 					
@@ -102,6 +109,17 @@
 						</h:panelGrid>
 						<h:commandButton value="#{msg.gameOkButton}"
 							action="#{distBean.addDistributor}" />
+					</h:form>
+					
+					<br />
+					
+					<h:form id="isgnForm">
+						<h:panelGrid columns="2">
+							<h:outputText value="Isgn:" />				
+							<h:inputText id="isgnName" value="#{isgnBean.isgn.value}" required="#{true}" />
+						</h:panelGrid>
+						<h:commandButton value="#{msg.gameOkButton}"
+							action="#{isgnBean.addIsgn}" />
 					</h:form>
 				
 				</h:panelGrid>

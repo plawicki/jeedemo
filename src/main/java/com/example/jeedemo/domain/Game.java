@@ -9,14 +9,17 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
@@ -37,6 +40,7 @@ public class Game {
 	
 	Developer dev;
 	List<Distributor> dist = new ArrayList<Distributor>();
+	Isgn isgn;
 	
 	public Game() {
 
@@ -115,7 +119,15 @@ public class Game {
 	public void setDev(Developer dev) {
 		this.dev = dev;
 	}
-	
-	
 
+	@OneToOne(optional=false)
+    @JoinColumn(
+      name="ISGN_ID", unique=true, nullable=false, updatable=false)
+	public Isgn getIsgn() {
+		return isgn;
+	}
+
+	public void setIsgn(Isgn isgn) {
+		this.isgn = isgn;
+	}
 }
