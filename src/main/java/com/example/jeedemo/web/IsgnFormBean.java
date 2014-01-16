@@ -44,4 +44,10 @@ public class IsgnFormBean implements Serializable {
 		//return "list";
 		return null;
 	}
+	
+	public String removeIsgn()
+	{
+		isgnm.deleteIsgn(isgn);
+		return null;
+	}
 }

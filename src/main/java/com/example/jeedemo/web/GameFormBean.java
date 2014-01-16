@@ -22,6 +22,7 @@ import com.example.jeedemo.domain.Car;
 import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.domain.Person;
 import com.example.jeedemo.service.GameManager;
+import com.example.jeedemo.service.IsgnManager;
 
 
 @SessionScoped
@@ -92,6 +93,7 @@ public class GameFormBean implements Serializable
 
 	public String deleteGame() {
 		Game gameToDelete = games.getRowData();
+		
 		gm.deleteGame(gameToDelete);
 		return null;
 	}

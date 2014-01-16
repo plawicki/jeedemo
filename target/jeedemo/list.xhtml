@@ -66,10 +66,14 @@
 					<h:column>
 						<f:facet name="header">${msg.listaNameIsgn}</f:facet>
 						#{item.isgn.value}
+					</h:column>			
+					
+					<h:column>
+						<h:commandButton value="#{msg.delete}"
+							action="#{gameBean.deleteGame}" />
 					</h:column>
 					
 					</h:dataTable>
-				
 				</h:form>
 
 			</div>

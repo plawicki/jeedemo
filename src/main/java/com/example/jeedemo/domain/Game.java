@@ -111,7 +111,7 @@ public class Game {
 		this.dist = dist;
 	}
 
-	@ManyToOne(cascade = { CascadeType.ALL })
+	@ManyToOne(cascade = { CascadeType.DETACH })
 	public Developer getDev() {
 		return dev;
 	}
