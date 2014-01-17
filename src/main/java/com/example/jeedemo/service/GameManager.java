@@ -84,13 +84,17 @@ public class GameManager {
 			gameToChange.getDist().add(dist);
 		}
 		
-		Isgn isgn = em.find(Isgn.class, isgnId);
+		if(isgnId != null)
+		{
+			Isgn isgn = em.find(Isgn.class, isgnId);
+			gameToChange.setIsgn(isgn);
+		}
 		
-		gameToChange.setIsgn(isgn);
-		
-		Developer dev = em.find(Developer.class, devId);
-		
-		gameToChange.setDev(dev);
+		if (devId != null) 
+		{
+			Developer dev = em.find(Developer.class, devId);
+			gameToChange.setDev(dev);
+		}
 		
 		em.merge(gameToChange);
 	}
