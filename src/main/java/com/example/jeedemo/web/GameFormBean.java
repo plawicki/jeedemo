@@ -101,7 +101,7 @@ public class GameFormBean implements Serializable
 	
 	public String editGame()
 	{
-		gm.editGame(game);
+		gm.editGame(game, devId, distId, isgnId);
 		return null;
 	}
 

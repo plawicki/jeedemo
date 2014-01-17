@@ -20,7 +20,7 @@ public class Isgn {
 	
 	Game game;
 
-	@OneToOne(optional=false, mappedBy="isgn")
+	@OneToOne(optional=true, mappedBy="isgn")
 	public Game getGame() {
 		return game;
 	}

@@ -112,7 +112,7 @@ public class Game {
 		this.dist = dist;
 	}
 
-	@ManyToOne(cascade = { CascadeType.DETACH })
+	@ManyToOne(optional=true)
 	public Developer getDev() {
 		return dev;
 	}
@@ -121,9 +121,9 @@ public class Game {
 		this.dev = dev;
 	}
 
-	@OneToOne(optional=false)
+	@OneToOne(optional=true, cascade= { CascadeType.DETACH })
     @JoinColumn(
-      name="ISGN_ID", unique=true, nullable=false, updatable=false)
+      name="ISGN_ID", unique=true, nullable=true, updatable=true)
 	public Isgn getIsgn() {
 		return isgn;
 	}

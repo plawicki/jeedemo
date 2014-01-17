@@ -19,12 +19,18 @@
 					<f:event type="postValidate" listener="#{gameBean.validatePinYop}" >
 						
 					</f:event>
-					
+
 					<h:panelGrid columns="2">
+					
+						<h:outputText value="Edit game" />
+					
+						<h:selectOneMenu value="#{gameBean.game}" >
+							<f:selectItems value="#{gameBean.allGames}" var="game"
+								itemValue="#{game}" itemLabel="#{game.title}" />
+						</h:selectOneMenu>
 						
 						<h:outputText value="#{msg.gamePIN}" />
 
-						
 						<h:inputText id="PIN" value="#{gameBean.game.PIN}" required="#{true}">
 							<f:validateRegex
                         		pattern="^[a-zA-Z]{4}[0-9]{4}$"></f:validateRegex>

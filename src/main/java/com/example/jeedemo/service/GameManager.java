@@ -38,13 +38,17 @@ public class GameManager {
 			game.getDist().add(dist);
 		}
 		
-		Isgn isgn = em.find(Isgn.class, isgnId);
+		if(isgnId != null)
+		{
+			Isgn isgn = em.find(Isgn.class, isgnId);
+			game.setIsgn(isgn);
+		}
 		
-		game.setIsgn(isgn);
-		
-		Developer dev = em.find(Developer.class, devId);
-		
-		game.setDev(dev);
+		if (devId != null) 
+		{
+			Developer dev = em.find(Developer.class, devId);
+			game.setDev(dev);
+		}
 		
 		game.setId(null);
 		em.persist(game);
@@ -67,9 +71,27 @@ public class GameManager {
 		return em.createNamedQuery("game.find").setParameter("title", "%" + this.help + "%").getResultList();
 	}
 	
-	public void editGame(Game gameToChange)
+	public void editGame(Game gameToChange, Long devId, Long[] distId, Long isgnId)
 	{
-		//em.refresh(gameToChange);
+		gameToChange.setDist(new ArrayList<Distributor>());
+		gameToChange.setDev(null);
+		gameToChange.setIsgn(null);
+		
+		for(Long i: distId)
+		{
+			Distributor dist = em.find(Distributor.class, i);
+			
+			gameToChange.getDist().add(dist);
+		}
+		
+		Isgn isgn = em.find(Isgn.class, isgnId);
+		
+		gameToChange.setIsgn(isgn);
+		
+		Developer dev = em.find(Developer.class, devId);
+		
+		gameToChange.setDev(dev);
+		
 		em.merge(gameToChange);
 	}
 }
