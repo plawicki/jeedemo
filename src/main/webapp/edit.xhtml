@@ -14,6 +14,7 @@
 				<small>#{msg.firstPostTime} by #{msg.byWho}</small>
 			</p>
 			<div class="entry">
+			
 				<h:form id="gameform">
 				
 					<f:event type="postValidate" listener="#{gameBean.validatePinYop}" >
@@ -24,10 +25,7 @@
 					
 						<h:outputText value="Edit game" />
 					
-						<h:selectOneMenu value="#{gameBean.game}" >
-							<f:selectItems value="#{gameBean.allGames}" var="game"
-								itemValue="#{game}" itemLabel="#{game.title}" />
-						</h:selectOneMenu>
+
 						
 						<h:outputText value="#{msg.gamePIN}" />
 

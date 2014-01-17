@@ -41,7 +41,7 @@ public class GameFormBean implements Serializable
 	private Long isgnId;
 	
 	private String findTitle = "";
-	
+
 	public String getFindTitle() {
 		return findTitle;
 	}
@@ -96,13 +96,18 @@ public class GameFormBean implements Serializable
 
 		gm.addGame(game, devId, distId, isgnId);
 		return "list";
-		//return null;
+	}
+	
+	public String makeEdit()
+	{
+		game = games.getRowData();
+		return "edit";
 	}
 	
 	public String editGame()
 	{
 		gm.editGame(game, devId, distId, isgnId);
-		return null;
+		return "list";
 	}
 
 	public String deleteGame() {
