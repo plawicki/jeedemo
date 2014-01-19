@@ -10,7 +10,8 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "isgn.all", query = "Select ign from Isgn ign")
+	@NamedQuery(name = "isgn.all", query = "Select ign from Isgn ign"),
+	@NamedQuery(name = "isgn.free", query = "Select ign from Isgn ign where ign.id NOT IN (Select gm.isgn.id from Game gm)")
 })
 public class Isgn {
 	

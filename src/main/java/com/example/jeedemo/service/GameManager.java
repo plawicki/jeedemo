@@ -65,6 +65,7 @@ public class GameManager {
 		return em.createNamedQuery("game.all").getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Game> getGamesByTitle(String arg)
 	{
 		this.help = arg;

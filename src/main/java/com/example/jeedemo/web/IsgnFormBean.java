@@ -37,6 +37,12 @@ public class IsgnFormBean implements Serializable {
 		return isgns;
 	}
 	
+	public ListDataModel<Isgn> getFreeIsgns()
+	{
+		isgns.setWrappedData(isgnm.getFreeIsgns());
+		return isgns;
+	}
+	
 	// Actions
 	
 	public String addIsgn() {

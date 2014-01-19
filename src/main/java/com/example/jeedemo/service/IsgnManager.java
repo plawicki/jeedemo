@@ -27,6 +27,13 @@ import com.example.jeedemo.domain.Isgn;
 			return em.createNamedQuery("isgn.all").getResultList();
 		}
 		
+		@SuppressWarnings("unchecked")
+		public List<Isgn> getFreeIsgns()
+		{
+			return em.createNamedQuery("isgn.free").getResultList();
+			
+		}
+		
 		// Removes the isgn with given Title
 		public void deleteIsgn(Isgn isgn) {
 			isgn = em.find(Isgn.class, isgn.getId());
