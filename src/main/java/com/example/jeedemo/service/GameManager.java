@@ -54,7 +54,7 @@ public class GameManager {
 		em.persist(game);
 	}
 
-	// Removes the game with given Title
+	// Removes the game with given id
 	public void deleteGame(Game game) {
 		game = em.find(Game.class, game.getId());
 		em.remove(game);

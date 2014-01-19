@@ -15,6 +15,8 @@
 			<div class="entry">
 	
 <!-- 				<p>#{msg.firstPostContent}</p> -->
+
+				Games: <br />
 				
 				<h:form>
 					<h:dataTable value="#{gameBean.allGames}" var="item">
@@ -78,6 +80,83 @@
 							action="#{gameBean.makeEdit}" />
 					</h:column>
 					
+					</h:dataTable>
+				</h:form>
+				
+				Isgns: <br />
+				
+				<h:form>
+					<h:dataTable value="#{isgnBean.allIsgns}" var="item">
+
+					<h:column>
+						<f:facet name="header">Value</f:facet>
+						#{item.value}
+					</h:column>
+
+					<h:column>
+						<h:commandButton value="#{msg.delete}"
+							action="#{isgnBean.removeIsgn}" />
+					</h:column>
+					
+					
+					<h:column>
+						<h:commandButton value="#{msg.edit}"
+							action="#{isgnBean.makeEdit}" />
+					</h:column>
+					
+
+					</h:dataTable>
+				</h:form>
+
+				Developers: <br />
+				
+				<h:form>
+					<h:dataTable value="#{devBean.allDevelopers}" var="item">
+			
+					
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+						#{item.name}
+					</h:column>
+
+					<h:column>
+						<h:commandButton value="#{msg.delete}"
+							action="#{devBean.removeDistributor}" />
+					</h:column>
+					
+					
+					<h:column>
+						<h:commandButton value="#{msg.edit}"
+							action="#{devBean.makeEdit}" />
+					</h:column>
+					
+
+					</h:dataTable>
+				</h:form>
+				
+				Distributors: <br />
+				
+				<h:form>
+					<h:dataTable value="#{distBean.allDistributors}" var="item">
+			
+					
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+						#{item.name}
+					</h:column>
+
+					<h:column>
+						<h:commandButton value="#{msg.delete}"
+							action="#{distBean.removeDistributor}" />
+					</h:column>
+					
+				 
+					<h:column>
+						<h:commandButton value="#{msg.edit}"
+							action="#{distBean.makeEdit}" />
+					</h:column>
+					
+
 					</h:dataTable>
 				</h:form>
 

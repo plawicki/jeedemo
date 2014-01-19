@@ -22,11 +22,7 @@
 					</f:event>
 
 					<h:panelGrid columns="2">
-					
-						<h:outputText value="Edit game" />
-					
-
-						
+		
 						<h:outputText value="#{msg.gamePIN}" />
 
 						<h:inputText id="PIN" value="#{gameBean.game.PIN}" required="#{true}">
@@ -91,6 +87,36 @@
 						action="#{gameBean.editGame}" />
 
 				</h:form>		
+				
+				<h:form>
+					<h:panelGrid columns="2">
+						<h:outputText value="Developer name:" />
+						<h:inputText value="#{devBean.dev.name}"></h:inputText>
+					
+						<h:commandButton value="#{msg.edit}"
+						action="#{devBean.editDeveloper}" />
+					</h:panelGrid>
+				</h:form>
+					
+				<h:form>
+					<h:panelGrid columns="2">
+						<h:outputText value="Distributor name:" />
+						<h:inputText value="#{distBean.dist.name}"></h:inputText>
+					
+						<h:commandButton value="#{msg.edit}"
+						action="#{distBean.editDistributor}" />
+					</h:panelGrid>
+				</h:form>
+					
+				<h:form>
+					<h:panelGrid columns="2">
+						<h:outputText value="Isgn name:" />
+						<h:inputText value="#{isgnBean.isgn.value}"></h:inputText>
+					
+						<h:commandButton value="#{msg.edit}"
+						action="#{isgnBean.editIsgn}" />
+					</h:panelGrid>
+				</h:form>
 				
 				<br />
 

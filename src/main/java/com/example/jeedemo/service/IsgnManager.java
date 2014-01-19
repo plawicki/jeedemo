@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.domain.Isgn;
 
@@ -34,9 +35,14 @@ import com.example.jeedemo.domain.Isgn;
 			
 		}
 		
-		// Removes the isgn with given Title
+		// Removes the isgn with given id
 		public void deleteIsgn(Isgn isgn) {
 			isgn = em.find(Isgn.class, isgn.getId());
 			em.remove(isgn);
+		}
+		
+		public void editIsgn(Isgn isgn)
+		{
+			em.merge(isgn);	
 		}
 	}

@@ -1,5 +1,6 @@
 package com.example.jeedemo.web;
 
+import java.beans.Expression;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
@@ -51,9 +52,28 @@ public class IsgnFormBean implements Serializable {
 		return null;
 	}
 	
+	public String makeEdit()
+	{
+		isgn = isgns.getRowData();
+		return "edit";
+	}
+	
+	public String editIsgn()
+	{
+		isgnm.editIsgn(isgn);
+		return "list";
+	}
+	
 	public String removeIsgn()
 	{
+		try
+		{
 		isgnm.deleteIsgn(isgn);
+		} catch (Exception e)
+		{
+			System.out.println("NOPE");
+		}
+		
 		return null;
 	}
 }

@@ -1,5 +1,6 @@
 package com.example.jeedemo.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class Isgn {
 	
 	Game game;
 
-	@OneToOne(optional=true, mappedBy="isgn")
+	@OneToOne(optional=true, mappedBy="isgn", cascade= { CascadeType.DETACH })
 	public Game getGame() {
 		return game;
 	}

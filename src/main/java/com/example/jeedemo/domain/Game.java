@@ -103,7 +103,7 @@ public class Game {
 		this.requireAdult = requireAdult;
 	}
 
-	@ManyToMany
+	@ManyToMany(cascade= { CascadeType.DETACH })
 	public List<Distributor> getDist() {
 		return dist;
 	}
@@ -112,7 +112,7 @@ public class Game {
 		this.dist = dist;
 	}
 
-	@ManyToOne(optional=true)
+	@ManyToOne(optional=true, cascade= { CascadeType.DETACH })
 	public Developer getDev() {
 		return dev;
 	}

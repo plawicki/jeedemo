@@ -7,6 +7,7 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.example.jeedemo.domain.Developer;
 import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.service.DistributorManager;
 
@@ -42,6 +43,27 @@ public class DistributorFormBean implements Serializable {
 	public String addDistributor() {
 		distm.addDistributor(dist);
 		//return "list";
+		return null;
+	}
+	
+	public String makeEdit()
+	{
+		dist = distrs.getRowData();
+		return "edit";
+	}
+	
+	public String editDistributor()
+	{
+		distm.editDistributor(dist);
+		return "list";
+	}
+	
+	public String removeDistributor() {
+		Distributor distToDelete = distrs.getRowData();
+		try
+		{
+		distm.deleteDistributor(distToDelete);
+		}catch (Exception e){ }
 		return null;
 	}
 }

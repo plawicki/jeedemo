@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.example.jeedemo.domain.Developer;
+import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.service.DeveloperManager;
 
 
@@ -42,6 +43,26 @@ public class DeveloperFormBean implements Serializable{
 	public String addDeveloper() {
 		devm.addDeveloper(dev);
 		//return "list";
+		return null;
+	}
+	
+	public String makeEdit()
+	{
+		dev = devs.getRowData();
+		return "edit";
+	}
+	
+	public String editDeveloper()
+	{
+		devm.editDeveloper(dev);
+		return "list";
+	}
+	
+	public String removeDistributor() {
+		Developer devToDelete = devs.getRowData();
+		try{
+		devm.deleteDeveloper(devToDelete);
+		}catch (Exception e){ }
 		return null;
 	}
 }
