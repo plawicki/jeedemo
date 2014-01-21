@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class Distributor {
 		this.name = name;
 	}
 
-	@ManyToMany(mappedBy = "dist", cascade= { CascadeType.DETACH })
+	@ManyToMany(mappedBy = "dist", cascade = { CascadeType.DETACH })
 	public List<Game> getGames() {
 		return games;
 	}

@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.example.jeedemo.domain.Developer;
+import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.domain.Distributor;
 
 
@@ -28,8 +28,16 @@ public class DistributorManager {
 	}
 	
 	public void deleteDistributor(Distributor dist) {
+		
 		dist = em.find(Distributor.class, dist.getId());
+		
+		for(Game game : dist.getGames())
+		{
+			game.getDist().remove(dist);
+			em.merge(game);
+		}
 		em.remove(dist);
+		em.flush();
 	}
 	
 	public void editDistributor(Distributor dist)

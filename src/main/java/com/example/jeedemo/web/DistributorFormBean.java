@@ -62,7 +62,7 @@ public class DistributorFormBean implements Serializable {
 		Distributor distToDelete = distrs.getRowData();
 		try
 		{
-		distm.deleteDistributor(distToDelete);
+			distm.deleteDistributor(distToDelete);
 		}catch (Exception e){ }
 		return null;
 	}
