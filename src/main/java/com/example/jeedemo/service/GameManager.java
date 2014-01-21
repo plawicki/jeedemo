@@ -84,6 +84,7 @@ public class GameManager {
 			Distributor dist = em.find(Distributor.class, i);
 			
 			gameToChange.getDist().add(dist);
+			dist.getGames().add(gameToChange);
 		}
 		
 		if(isgnId != null)
