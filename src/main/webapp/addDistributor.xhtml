@@ -18,8 +18,11 @@
 				<h:form id="distForm">
 						<h:panelGrid columns="2">
 							<h:outputText value="#{msg.distName}" />				
-							<h:inputText id="distName" value="#{distBean.dist.name}" required="#{true}" />
+							<h:inputText id="distName" value="#{distBean.dist.name}" validator="#{distBean.uniqueName}" required="#{true}" />
 						</h:panelGrid>
+						
+						<rich:message for="distName" />
+						
 						<h:commandButton value="#{msg.gameOkButton}"
 							action="#{distBean.addDistributor}" />
 					</h:form>

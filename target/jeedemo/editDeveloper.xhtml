@@ -21,8 +21,8 @@
 <h:form>
 					<h:panelGrid columns="2">
 						<h:outputText value="Developer name:" />
-						<h:inputText value="#{devBean.dev.name}"></h:inputText>
-					
+						<h:inputText id="devName" value="#{devBean.dev.name}" validator="#{devBean.uniqueName}" required="#{true}"></h:inputText>
+						<rich:message for="devName" />
 						<h:commandButton value="#{msg.edit}"
 						action="#{devBean.editDeveloper}" />
 					</h:panelGrid>

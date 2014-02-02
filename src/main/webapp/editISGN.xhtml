@@ -20,8 +20,10 @@
 <h:form>
 					<h:panelGrid columns="2">
 						<h:outputText value="Isgn name:" />
-						<h:inputText value="#{isgnBean.isgn.value}"></h:inputText>
-					
+						<h:inputText id="isgnName" value="#{isgnBean.isgn.value}" validator="#{isgnBean.uniqueName}" required="#{true}" >
+								<f:validator validatorId="isgnValidator" />
+						</h:inputText>
+						<rich:message for="isgnName" />
 						<h:commandButton value="#{msg.edit}"
 						action="#{isgnBean.editIsgn}" />
 					</h:panelGrid>

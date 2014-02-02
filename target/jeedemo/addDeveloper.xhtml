@@ -19,8 +19,11 @@
 					<h:form id="devForm">
 						<h:panelGrid columns="2">
 							<h:outputText value="#{msg.devName}" />				
-							<h:inputText id="devName" value="#{devBean.dev.name}" required="#{true}" />
+							<h:inputText id="devName" value="#{devBean.dev.name}" validator="#{devBean.uniqueName}" required="#{true}" />
 						</h:panelGrid>
+						
+						<rich:message for="devName" />
+						
 						<h:commandButton value="#{msg.gameOkButton}"
 							action="#{devBean.addDeveloper}" />
 					</h:form>

@@ -4,10 +4,15 @@ import java.beans.Expression;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.faces.model.ListDataModel;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.domain.Isgn;
 import com.example.jeedemo.service.IsgnManager;
 
@@ -75,5 +80,21 @@ public class IsgnFormBean implements Serializable {
 		}
 		
 		return null;
+	}
+	
+	// Validators
+	
+	public void uniqueName(FacesContext context, UIComponent component,
+			Object value) {
+
+		String name = (String) value;
+
+		for (Isgn i : isgnm.getAllIsgns()) {
+			if (i.getValue().equalsIgnoreCase(name)) {
+				FacesMessage message = new FacesMessage( "ISGN with this value already exists in database");
+				message.setSeverity(FacesMessage.SEVERITY_ERROR);
+				throw new ValidatorException(message);
+			}
+		}
 	}
 }

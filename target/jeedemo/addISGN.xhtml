@@ -17,10 +17,20 @@
 				<h:form id="isgnForm">
 						<h:panelGrid columns="2">
 							<h:outputText value="#{msg.isgnName}" />				
-							<h:inputText id="isgnName" value="#{isgnBean.isgn.value}" required="#{true}" />
+							<h:inputText id="isgnName" value="#{isgnBean.isgn.value}" validator="#{isgnBean.uniqueName}" required="#{true}" >
+								<f:validator validatorId="isgnValidator" />
+								
+							</h:inputText>
 						</h:panelGrid>
+						
+						<rich:message for="isgnName" />
+						
+						
+						
 						<h:commandButton value="#{msg.gameOkButton}"
 							action="#{isgnBean.addIsgn}" />
+							
+							
 					</h:form>
 			</div>
 

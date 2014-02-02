@@ -20,8 +20,8 @@
 <h:form>
 					<h:panelGrid columns="2">
 						<h:outputText value="Distributor name:" />
-						<h:inputText value="#{distBean.dist.name}"></h:inputText>
-					
+						<h:inputText id="distName" value="#{distBean.dist.name}" validator="#{distBean.uniqueName}" required="#{true}" />
+						<rich:message for="distName" />
 						<h:commandButton value="#{msg.edit}"
 						action="#{distBean.editDistributor}" />
 					</h:panelGrid>
