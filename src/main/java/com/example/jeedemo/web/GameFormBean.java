@@ -18,9 +18,9 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.example.jeedemo.domain.Car;
+
 import com.example.jeedemo.domain.Game;
-import com.example.jeedemo.domain.Person;
+
 import com.example.jeedemo.service.GameManager;
 import com.example.jeedemo.service.IsgnManager;
 

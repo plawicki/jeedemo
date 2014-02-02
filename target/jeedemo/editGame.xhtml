@@ -74,9 +74,9 @@
 						
 						<h:outputText value="#{msg.isgnName}" />
 						<h:selectOneMenu value="#{gameBean.isgnId}" >
-							<f:selectItems value="#{isgnBean.allIsgns}" var="isgn"
+							<f:selectItems value="#{isgnBean.freeIsgns}" var="isgn"
 								itemValue="#{isgn.id}" converter="javax.faces.Long" itemLabel="#{isgn.value}" />
-						
+							<f:selectItem itemLabel="#{gameBean.game.isgn.value}" itemValue="#{gameBean.game.isgn.id}"></f:selectItem>
 						</h:selectOneMenu>
 							
 					</h:panelGrid>

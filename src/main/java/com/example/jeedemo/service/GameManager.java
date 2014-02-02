@@ -10,12 +10,10 @@ import javax.faces.model.ListDataModel;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.example.jeedemo.domain.Car;
 import com.example.jeedemo.domain.Developer;
 import com.example.jeedemo.domain.Distributor;
 import com.example.jeedemo.domain.Game;
 import com.example.jeedemo.domain.Isgn;
-import com.example.jeedemo.domain.Person;
 
 @Stateless
 public class GameManager {

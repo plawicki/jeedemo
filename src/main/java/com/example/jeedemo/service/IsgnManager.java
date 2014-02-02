@@ -35,6 +35,15 @@ import com.example.jeedemo.domain.Isgn;
 			
 		}
 		
+		@SuppressWarnings("unchecked")
+		public List<Isgn> getEditIsgns(Isgn isgn)
+		{
+			List<Isgn> help = em.createNamedQuery("isgn.free").getResultList();
+			help.add(isgn);
+			
+			return help;
+		}
+		
 		// Removes the isgn with given id
 		public void deleteIsgn(Isgn isgn) {
 			isgn = em.find(Isgn.class, isgn.getId());
