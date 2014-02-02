@@ -43,19 +43,19 @@ public class DistributorFormBean implements Serializable {
 	public String addDistributor() {
 		distm.addDistributor(dist);
 		//return "list";
-		return null;
+		return "listDistributor";
 	}
 	
 	public String makeEdit()
 	{
 		dist = distrs.getRowData();
-		return "edit";
+		return "editDistributor";
 	}
 	
 	public String editDistributor()
 	{
 		distm.editDistributor(dist);
-		return "list";
+		return "listDistributor";
 	}
 	
 	public String removeDistributor() {

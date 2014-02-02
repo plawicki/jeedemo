@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/templates/mojaTemplatka.xhtml">
+
+	<ui:define name="content">
+
+		<div class="post">
+			<h2 class="title">#{msg.firstPostTitle}</h2>
+			<p class="byline">
+				<small>#{msg.firstPostTime} by #{msg.byWho}</small>
+			</p>
+			<div class="entry">
+			
+			#{msg.editLast} <h:button outcome="listDistributor.jsf" value="#{msg.choose}"></h:button>
+			<br />
+<h:form>
+					<h:panelGrid columns="2">
+						<h:outputText value="Distributor name:" />
+						<h:inputText value="#{distBean.dist.name}"></h:inputText>
+					
+						<h:commandButton value="#{msg.edit}"
+						action="#{distBean.editDistributor}" />
+					</h:panelGrid>
+				</h:form>
+			</div>
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>

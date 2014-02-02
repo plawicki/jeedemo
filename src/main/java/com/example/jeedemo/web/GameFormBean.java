@@ -95,19 +95,19 @@ public class GameFormBean implements Serializable
 	public String addGame() {
 
 		gm.addGame(game, devId, distId, isgnId);
-		return "list";
+		return "listGame";
 	}
 	
 	public String makeEdit()
 	{
 		game = games.getRowData();
-		return "edit";
+		return "editGame";
 	}
 	
 	public String editGame()
 	{
 		gm.editGame(game, devId, distId, isgnId);
-		return "list";
+		return "listGame";
 	}
 
 	public String deleteGame() {

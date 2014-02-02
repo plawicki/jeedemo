@@ -49,19 +49,19 @@ public class IsgnFormBean implements Serializable {
 	public String addIsgn() {
 		isgnm.addIsgn(isgn);
 		//return "list";
-		return null;
+		return "listISGN";
 	}
 	
 	public String makeEdit()
 	{
 		isgn = isgns.getRowData();
-		return "edit";
+		return "editISGN";
 	}
 	
 	public String editIsgn()
 	{
 		isgnm.editIsgn(isgn);
-		return "list";
+		return "listISGN";
 	}
 	
 	public String removeIsgn()

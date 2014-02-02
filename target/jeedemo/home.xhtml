@@ -4,7 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:rich="http://richfaces.org/rich"
-	template="/templates/mojaTemplatka.xhtml">
+	template="/templates/mojaTemplatka.xhtml"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="content">
 
@@ -14,114 +15,12 @@
 				<small>#{msg.firstPostTime} by #{msg.byWho}</small>
 			</p>
 			<div class="entry">
-				<h:form id="gameform">
-				
-					<f:event type="postValidate" listener="#{gameBean.validatePinYop}" >
 						
-					</f:event>
-					
-					<h:panelGrid columns="2">
-						
-						<h:outputText value="#{msg.gamePIN}" />
-
-						
-						<h:inputText id="PIN" value="#{gameBean.game.PIN}" validator="#{gameBean.uniquePin}" required="#{true}">
-							<f:validateRegex
-                        		pattern="^[a-zA-Z]{4}[0-9]{4}$"></f:validateRegex>
-                    		<rich:validator />
-						</h:inputText>
-						
-						<rich:message for="PIN" />
-						
-						<br />
-
-						<h:outputText value="#{msg.gameTitle}" />
-						<rich:inplaceInput id="name" value="#{gameBean.game.title}" defaultLabel="click to enter title" required="#{true}">
-							<f:validator validatorId="titleValidator" />
-							<f:ajax execute="@this" render="messages" />
-						</rich:inplaceInput>
-
-						<h:outputText value="#{msg.gameYop}" />
-						<rich:calendar value="#{gameBean.game.yop}" id="yop" locale="PL"
-                  		  	popup="true" datePattern="dd.MM.yyyy"
-                    		showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
-                    		disabled="false">
-                		</rich:calendar>
-						
-						<h:outputText value="#{msg.gamePrice}" />
-						<rich:inputNumberSlider value="#{gameBean.game.price}" width="255" maxValue="260" step="1" showArrows="true" showTooltip="false" >
-							<f:validateDoubleRange minimum="5" maximum="260.5" />
-						</rich:inputNumberSlider>
-							
-						<h:outputText value="#{msg.gameRequireAdult}" />
-						<h:selectBooleanCheckbox id="requireAdult"
-							value="#{gameBean.game.requireAdult}" />
-							
-						<h:outputText value="#{msg.devName}" />
-						<h:selectOneMenu value="#{gameBean.devId}">
-							<f:selectItems value="#{devBean.allDevelopers}" var="dev" 
-							  itemValue="#{dev.id}" converter="javax.faces.Long" itemLabel="#{dev.name}"  />
-						</h:selectOneMenu>
-						
-						<h:outputText value="#{msg.distName}" />
-						<h:selectManyListbox value="#{gameBean.distId}"  converter="javax.faces.Long">
-							<f:selectItems value="#{distBean.allDistributors}" 
-							  var="dist" itemValue="#{dist.id}" itemLabel="#{dist.name}" />
-						</h:selectManyListbox>
-						
-						<h:outputText value="#{msg.isgnName}" />
-						<h:selectOneMenu value="#{gameBean.isgnId}" >
-							<f:selectItems value="#{isgnBean.freeIsgns}" var="isgn"
-								itemValue="#{isgn.id}" converter="javax.faces.Long" itemLabel="#{isgn.value}" />
-						
-						</h:selectOneMenu>
-							
-					</h:panelGrid>
-					
-					<h:panelGrid>
-							<h:messages id="messages" showDetail="#{true}"
-								showSummary="#{false}" />
-					</h:panelGrid>
-
-					<h:commandButton value="#{msg.gameOkButton}"
-						action="#{gameBean.addGame}" />
-
-				</h:form>		
 				
 				<br />
 				<h:panelGrid columns="2">
 				
-					<h:form id="devForm">
-						<h:panelGrid columns="2">
-							<h:outputText value="#{msg.devName}" />				
-							<h:inputText id="devName" value="#{devBean.dev.name}" required="#{true}" />
-						</h:panelGrid>
-						<h:commandButton value="#{msg.gameOkButton}"
-							action="#{devBean.addDeveloper}" />
-					</h:form>
-					
-					<br />
-					
-					<h:form id="distForm">
-						<h:panelGrid columns="2">
-							<h:outputText value="#{msg.distName}" />				
-							<h:inputText id="distName" value="#{distBean.dist.name}" required="#{true}" />
-						</h:panelGrid>
-						<h:commandButton value="#{msg.gameOkButton}"
-							action="#{distBean.addDistributor}" />
-					</h:form>
-					
-					<br />
-					
-					<h:form id="isgnForm">
-						<h:panelGrid columns="2">
-							<h:outputText value="#{msg.isgnName}" />				
-							<h:inputText id="isgnName" value="#{isgnBean.isgn.value}" required="#{true}" />
-						</h:panelGrid>
-						<h:commandButton value="#{msg.gameOkButton}"
-							action="#{isgnBean.addIsgn}" />
-					</h:form>
-				
+				#{msg.firstPost}
 				</h:panelGrid>
 
 			</div>

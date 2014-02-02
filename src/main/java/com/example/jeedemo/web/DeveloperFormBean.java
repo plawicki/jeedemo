@@ -43,19 +43,19 @@ public class DeveloperFormBean implements Serializable{
 	public String addDeveloper() {
 		devm.addDeveloper(dev);
 		//return "list";
-		return null;
+		return "listDeveloper";
 	}
 	
 	public String makeEdit()
 	{
 		dev = devs.getRowData();
-		return "edit";
+		return "editDeveloper";
 	}
 	
 	public String editDeveloper()
 	{
 		devm.editDeveloper(dev);
-		return "list";
+		return "listDeveloper";
 	}
 	
 	public String removeDistributor() {

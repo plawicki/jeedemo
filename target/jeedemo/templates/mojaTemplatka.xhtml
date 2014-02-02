@@ -2,7 +2,8 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 
 
@@ -24,13 +25,49 @@
 
 
 	<div id="menu">
+	<p:megaMenu>
+		<p:submenu label="#{msg.menuFirst}" icon="ui-icon-check">
+			<p:column>
+				<p:submenu label="#{msg.menuFirst}">
+					<p:menuitem value="#{msg.menuAddGame}" url="addGame.jsf" />
+					<p:menuitem value="#{msg.menuAddISGN}" url="addISGN.jsf" />
+					<p:menuitem value="#{msg.menuAddDistributor}" url="addDistributor.jsf" />
+					<p:menuitem value="#{msg.menuAddDeveloper}" url="addDeveloper.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:submenu label="#{msg.menuSec}" icon="ui-icon-check">
+			<p:column>
+				<p:submenu label="#{msg.menuSec}">
+					<p:menuitem value="#{msg.menuListGame}" url="listGame.jsf" />
+					<p:menuitem value="#{msg.menuListISGN}" url="listISGN.jsf" />
+					<p:menuitem value="#{msg.menuListDistributor}" url="listDistributor.jsf" />
+					<p:menuitem value="#{msg.menuListDeveloper}" url="listDeveloper.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:submenu label="#{msg.menuTh}" icon="ui-icon-check">
+			<p:column>
+				<p:submenu label="#{msg.menuTh}">
+					<p:menuitem value="#{msg.menuSearchGame}" url="searchGame.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+	
+		<p:submenu label="#{msg.menuF}" icon="ui-icon-check">
+			<p:column>
+				<p:submenu label="#{msg.menuF}">
+					<p:menuitem value="#{msg.menuEditGame}" url="editGame.jsf" />
+					<p:menuitem value="#{msg.menuEditISGN}" url="editISGN.jsf" />
+					<p:menuitem value="#{msg.menuEditDistributor}" url="editDistributor.jsf" />
+					<p:menuitem value="#{msg.menuEditDeveloper}" url="editDeveloper.jsf" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>	
+	</p:megaMenu>
 
-		<ul>
-			<li><a href="home.jsf">#{msg.menuFirst}</a></li>
-			<li><a href="list.jsf">#{msg.menuSec}</a></li>
-			<li><a href="findList.jsf">#{msg.menuTh}</a></li>
-			<li><a href="edit.jsf">#{msg.menuF}</a></li>
-		</ul>
 
 	</div>
 
